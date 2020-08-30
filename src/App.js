@@ -1,11 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Login from './Login'
+import Login from './Login';
+import SignUp from './SignUp';
+import Navbar from './Navbar';
+
+
+
+
+
+
+
 
 function App() {
   return (
-    <> <Login /></>
+    <> 
+    
+    <Navbar />
+    <Login />
+    <SignUp />
+
+   
+    </>
   );
 }
 
