@@ -42,12 +42,12 @@ body {
   height: 4.5rem;
 }
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
   text-transform: uppercase;
 }
 
-img {
+#navbar img {
   border-radius: 5px;
   height: auto;
   width: 10rem;
@@ -57,10 +57,12 @@ div {
   text-align: center;
 }
 
-small {
+/* small {
   display: block;
+} */
+#welcome{
+  width: 800px;
 }
-
 a {
   color: #343078;
   text-decoration: none;
