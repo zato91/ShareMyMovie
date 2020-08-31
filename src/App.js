@@ -34,7 +34,7 @@ function App() {
    
     <Navbar />
     <Login />
-    <SignUp />
+    {/* <SignUp /> */}
 
    
     </>

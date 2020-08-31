@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 html, body {
   margin: 0;
@@ -14,20 +15,30 @@ html, body {
     height: 100%;
 }
 
+#family{
+  font-family: 'Indie Flower', cursive;
+}
+
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0D0C1D;
+  /* background: lightcyan; */
+  background: url("/image/navvvi.jpg") no-repeat center center fixed ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: #EFFFFA;
   height: 100vh;
   text-rendering: optimizeLegibility;
   font-family: 'Raleway', sans-serif;
+  font-family: 'Indie Flower', cursive;
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
 }
 #navbar{
-  background-color: #EFFFFA;
+  
   height: 4.5rem;
 }
 h1 {
