@@ -1,68 +1,16 @@
-// import React, {Component} from 'react'
-
-// class Login extends Component{
-
-//     handleChange = (e) => {
-//       this.setState({
-//         [e.target.name]: e.target.value
-//       })
-//     }
-
-//     handleSubmit = (e) => {
-//       e.preventDefault()
-
-//       fetch("http://localhost:3000/login", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-//           username: this.state.username,
-//           password: this.state.password
-//         })
-//       })
-//       .then(res => res.json())
-//       .then(data => {
-//         localStorage.token = data.token
-//         console.log(localStorage.token)
-         
-//       })
-   
-//     }
-
-
-//     render(){
-//         return(
-//         <div>
-//              <h2>Login</h2>
-//             <form onSubmit={(e) => this.handleSubmit(e)}>
-//             <label>UserName</label>
-//             <input onChange={(e) => this.handleChange(e)} name="username" type="text"  />
-//             <label>Password</label>
-//             <input onChange={(e) => this.handleChange(e)} name="password" type="password" />
-//             <input type="submit"/>
-//             </form>
-//         </div>
-//         )
-//     }
-// }
-
-// export default Login
-
 import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {Route, useHistory } from "react-router-dom";
+
+
 
 
 
@@ -102,6 +50,11 @@ export default function Login() {
   const classes = useStyles();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
+
+  const handleClick = () => {
+    if(localStorage.token) history.push("/welcome") 
+}
 
   let handleSubmit = (e) => {
     e.preventDefault()
@@ -116,15 +69,29 @@ export default function Login() {
       })
       })
       .then(res => res.json())
-      .then(data => {
+      .then(data => { 
+        if(data.token){
         localStorage.token = data.token
-        console.log(localStorage.token)   
+        localStorage.username = data.user.username 
+        }else {
+          
+          let wrong = document.createElement("h1");
+          wrong.innerText = data.error
+          wrong.style.color = "red"
+          document.querySelector('.makeStyles-paper-1').append(wrong)
+        }
+        console.log(localStorage.username) 
+        console.log(data.error)  
       })
+
+      
+      
+
+
   }
-  
+
   return (
     <Container component="main" maxWidth="xs">
-      {/* <CssBaseline /> */}
       <div className={classes.paper}>
         <Avatar style={{backgroundColor: "#EFFFFA"}}  className={classes.avatar}>
           <LockOutlinedIcon style={{color: "black"}}/>
@@ -132,8 +99,10 @@ export default function Login() {
         <Typography style={{color: "black"}} component="h1" variant="h5">
           Sign in
         </Typography>
-        <form onSubmit={(e) => handleSubmit(e)} className={classes.form} noValidate>
-          <TextField onChange={event => setPassword(event.target.value)}
+        <form onSubmit={(e) => {handleSubmit(e) 
+         handleClick()}} 
+        className={classes.form} noValidate>
+          <TextField onChange={event => setUsername(event.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -144,7 +113,7 @@ export default function Login() {
             autoComplete="email"
             autoFocus
           />
-          <TextField onChange={event => setUsername(event.target.value)}
+          <TextField onChange={event => setPassword(event.target.value)}
             variant="outlined"
             margin="normal"
             required
@@ -155,18 +124,19 @@ export default function Login() {
             id="password"
             autoComplete="current-password"
           />
-          <Button
+          <Button 
             type="submit"
             fullWidth
             variant="contained"
             style={{backgroundColor: "#EFFFFA"}}
             className={classes.submit}
+            
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item style={{width: "100%"}}>
-              <Link id="family" href="#" variant="body2" className={classes.lia}>
+              <Link id="family" href="/signup" variant="body2" className={classes.lia}>
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

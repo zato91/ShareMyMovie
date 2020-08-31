@@ -6,6 +6,9 @@ const Menu = ({ open, ...props }) => {
   
   const isHidden = open ? true : false;
   const tabIndex = isHidden ? 0 : -1;
+  let logout = () => {localStorage.clear();}
+
+
 
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
@@ -29,7 +32,7 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true"></span>
         Chat
         </a>
-      <a href="/" tabIndex={tabIndex}>
+      <a href="/" onClick={logout} tabIndex={tabIndex}>
         <span aria-hidden="true"></span>
         Logout
         </a>

@@ -5,10 +5,14 @@ import SignUp from './SignUp';
 import Navbar from './Navbar';
 import { ThemeProvider } from 'styled-components';
 import { useOnClickOutside } from './hook.js';
-
+import {
+  Route, Link
+} from "react-router-dom";
 import { theme } from './theme';
 import { Burger, Menu } from './components';
-// import FocusLock from 'react-focus-lock';
+import Log from './Log';
+import Welcome from './Welcome';
+
 
 
 function App() {
@@ -19,6 +23,7 @@ function App() {
   useOnClickOutside(node, () => setOpen(false));
   return (
     <> 
+    
     <ThemeProvider theme={theme}>
       
       
@@ -33,8 +38,11 @@ function App() {
     </ThemeProvider>
    
     <Navbar />
-    <Login />
-    {/* <SignUp /> */}
+    <Route path="/" component={Log} />
+    {/* {!localStorage.token ? <>
+    <Route  path="/" Login component={Login} />
+    <Route path="/signup" component={SignUp} /> </> : <h1>Welcome {localStorage.token}</h1> } */}
+    <Route path="/welcome" component={Welcome} />
 
    
     </>
