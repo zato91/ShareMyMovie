@@ -10,6 +10,7 @@ import { theme } from './theme';
 import { Burger, Menu } from './components';
 import Log from './Log';
 import Welcome from './Welcome';
+import Movie from './Movie';
 
 
 
@@ -32,6 +33,7 @@ function App() {
     <Navbar />
     <Route path="/" component={Log} />
     <Route path="/welcome" component={Welcome} />
+    <Route path="/movie" component={Movie} />
 
    
   </>

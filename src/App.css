@@ -67,3 +67,8 @@ a {
   color: #343078;
   text-decoration: none;
 }
+
+#movie{
+  display: flex;
+  flex-wrap: wrap;
+}

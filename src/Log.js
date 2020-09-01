@@ -8,7 +8,7 @@ import SignUp from './SignUp';
 export default function Log() {
     return <> 
     {!localStorage.token ? <>
-    <Route exact path="/" component={Login}/>
+    <Route  exact path="/" component={Login}/>
     <Route path="/signup" component={SignUp} /> </> : null }
     </>
 };
