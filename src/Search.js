@@ -4,6 +4,9 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Route, useHistory } from "react-router-dom";
+import MediaCard from './MediaCard'
+import {incr} from './actions';
+import { useSelector, useDispatch } from "react-redux"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -20,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default  function Search() {
     const classes = useStyles();
+    const dispatch = useDispatch()
   
   const [movie, setmovie] = useState('');
   
@@ -37,7 +41,21 @@ export default  function Search() {
         }
       })
       .then(res => res.json())
-      .then(movies => movies)
+      .then(movies => {
+        
+        let x = [];
+        // movies.results.forEach(movie => x.push({name:movie.name, pic:movie.picture}))
+        movies.results.forEach(movie => x.push({name:movie.name, pic:movie.picture}))
+        // movies.results.map(movie=> 
+        // <MediaCard  movie={movie}/> 
+        // )
+        
+        // x.forEach(y=>dispatch(incr(y)) )
+        dispatch(incr(x))
+        // incr(x)
+        
+        
+      })
       .catch(err => {
         console.log(err);
       });
