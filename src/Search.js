@@ -52,6 +52,9 @@ export default  function Search() {
         
         // x.forEach(y=>dispatch(incr(y)) )
         dispatch(incr(x))
+
+
+        // dispatch(type; )
         // incr(x)
         
         
