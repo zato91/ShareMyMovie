@@ -1,6 +1,7 @@
-export const incr = (obj) => {
+export const addfilm = (obj) => {
+    console.log(obj)
     return {
-        type: 'film',
+        type: 'ADDFILM',
         payload: obj
     };
 }

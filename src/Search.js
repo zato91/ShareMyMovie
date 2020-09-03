@@ -1,11 +1,9 @@
-import React, {Component, useState} from 'react'
+import React, {useState} from 'react'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {Route, useHistory } from "react-router-dom";
-import MediaCard from './MediaCard'
-import {incr} from './actions';
+import {addfilm} from './actions';
 import { useSelector, useDispatch } from "react-redux"
 
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 export default  function Search() {
     const classes = useStyles();
     const dispatch = useDispatch()
+    // const arr = useSelector(state=> state.myMovies)
   
   const [movie, setmovie] = useState('');
   
@@ -43,20 +42,7 @@ export default  function Search() {
       .then(res => res.json())
       .then(movies => {
         
-        let x = [];
-        // movies.results.forEach(movie => x.push({name:movie.name, pic:movie.picture}))
-        movies.results.forEach(movie => x.push({name:movie.name, pic:movie.picture}))
-        // movies.results.map(movie=> 
-        // <MediaCard  movie={movie}/> 
-        // )
-        
-        // x.forEach(y=>dispatch(incr(y)) )
-        dispatch(incr(x))
-
-
-        // dispatch(type; )
-        // incr(x)
-        
+        dispatch(addfilm(movies.results))
         
       })
       .catch(err => {
@@ -93,6 +79,7 @@ export default  function Search() {
               
             </form>
           </div>
+    
         </Container>
       );
 

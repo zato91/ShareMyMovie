@@ -1,11 +1,9 @@
 import React, { useState, useRef } from 'react';
 import './App.css';
-import Login from './Login';
-import SignUp from './SignUp';
 import Navbar from './Navbar';
 import { ThemeProvider } from 'styled-components';
 import { useOnClickOutside } from './hook.js';
-import {Route, Link} from "react-router-dom";
+import {Route} from "react-router-dom";
 import { theme } from './theme';
 import { Burger, Menu } from './components';
 import Log from './Log';
