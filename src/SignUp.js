@@ -70,7 +70,8 @@ export default function SignUp() {
       .then(res => res.json())
       .then(data => {
         localStorage.token = data.token
-        console.log(data)   
+        localStorage.username = data.user.username 
+        localStorage.id = data.user.id  
       })
   }
 

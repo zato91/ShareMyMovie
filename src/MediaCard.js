@@ -8,15 +8,25 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
+
+
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    width: 310,
     margin: '20px 30px'
    
     
   },
   media: {
     height: 140,
+     
+  },
+
+  bu: {
+    margin: '5px',
+    backgroundColor: '#5f9ea0',
+    fontFamily: 'Indie Flower',
   },
 });
 
@@ -28,22 +38,30 @@ export default function MediaCard(props) {
       <CardActionArea >
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={props.picture}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {props.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+           
+          <Button variant="contained" className={classes.bu} href={props.display_url} target="_blank">On: {props.displayOn}</Button>
+          <Button variant="contained" className={classes.bu} href={props.url_des} target="_blank">Description</Button>
+          
+            
+
+
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Add
+        <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
+          Add movie to list
+        </Button>
+        <Button style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
+          Create List
         </Button>
       </CardActions>
     </Card>

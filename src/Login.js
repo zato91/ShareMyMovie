@@ -73,6 +73,7 @@ export default function Login() {
         if(data.token){
         localStorage.token = data.token
         localStorage.username = data.user.username 
+        localStorage.id = data.user.id 
         }else {
           
           let wrong = document.createElement("h1");
