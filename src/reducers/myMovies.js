@@ -12,9 +12,3 @@ const myMovies = (state = initialState, action) => {
 }
 
 export default myMovies;
-
-// let clientList =  [...state.clientList, action.client];
-//             return {
-//               ...state,
-//               clientList : clientList
-//             }

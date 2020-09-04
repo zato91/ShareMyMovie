@@ -1,21 +1,33 @@
 import React from 'react';
 import Search from './Search';
-// import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
+import MediaCard from './MediaCard';
+
 
 
 
 
 const Movie = () => {
-    // const movieNum =  useSelector(state => state.myMovies)
-    // const dispatch = useDispatch()
+    const movies =  useSelector(state => state.myMovies)
+   
+    
 
     return <div>
                 <h1>Find a Movie </h1>
-                {/* <button onClick={()=> dispatch(incr(5))}>X</button> */}
+                
                 <Search />
                 <div id='movie'>
-                {/* <MediaCard /> */}
-               
+                
+                {  movies.map((movie) => 
+                    <MediaCard 
+                        name={movie.name} 
+                        picture={movie.picture} 
+                        url_des={movie.external_ids.imdb.url} 
+                        displayOn={movie.locations[0].display_name} 
+                        display_url={movie.locations[0].url} 
+                        
+                    />
+                )}
                 </div>
            </div>
 };
