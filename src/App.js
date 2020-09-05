@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import { ThemeProvider } from 'styled-components';
@@ -17,6 +17,15 @@ function App() {
   const [open, setOpen] = useState(false);
   const node = useRef();
   const menuId = "main-menu";
+  // const movies =  useSelector(state => state.myMovies)
+  // const list =  useSelector(state => state.listMovie)
+  useEffect(() => {
+    fetch('')
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data)
+    })
+}, [])
 
   useOnClickOutside(node, () => setOpen(false));
   return (
@@ -33,7 +42,7 @@ function App() {
     <Route path="/" component={Log} />
     <Route path="/welcome" component={Welcome} />
     <Route path="/movie" component={Movie} />
-
+    
    <SimpleModal />
    {/* <SimpleRating /> */}
  

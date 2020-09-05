@@ -5,3 +5,13 @@ export const addfilm = (obj) => {
         payload: obj
     };
 }
+
+
+
+// export const listmovie = (obj) => {
+//     console.log(obj)
+//     return {
+//         type: 'LISTMOVIE',
+//         payload: obj
+//     };
+// }

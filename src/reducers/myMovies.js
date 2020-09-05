@@ -1,7 +1,5 @@
 
-const initialState = [];
-
-const myMovies = (state = initialState, action) => {
+const myMovies = (state = [], action) => {
     switch (action.type) {
         case 'ADDFILM': 
                 state = []
