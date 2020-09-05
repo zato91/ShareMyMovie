@@ -9,7 +9,8 @@ import { Burger, Menu } from './components';
 import Log from './Log';
 import Welcome from './Welcome';
 import Movie from './Movie';
-
+import SimpleModal from './SimpleModal';
+import SimpleRating from './SimpleRating';
 
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
     <Route path="/welcome" component={Welcome} />
     <Route path="/movie" component={Movie} />
 
-   
+   <SimpleModal />
+ 
   </>
   );
 }

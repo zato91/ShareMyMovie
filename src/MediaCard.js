@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import SimpleModal from './SimpleForm';
 
 
 
@@ -33,6 +34,12 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
   const classes = useStyles();
   console.log(props)
+  
+
+  function listCreation(movie){
+
+  }
+
   return (
     <Card className={classes.root} id="tosh">
       <CardActionArea >
@@ -48,7 +55,7 @@ export default function MediaCard(props) {
           <Typography variant="body2" color="textSecondary" component="p">
            
           <Button variant="contained" className={classes.bu} href={props.display_url} target="_blank">On: {props.displayOn}</Button>
-          <Button variant="contained" className={classes.bu} href={props.url_des} target="_blank">Description</Button>
+          <Button  variant="contained" className={classes.bu} href={props.url_des} target="_blank">Description</Button>
           
             
 
@@ -57,12 +64,13 @@ export default function MediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
+        
+        {/* <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
           Add movie to list
         </Button>
-        <Button style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
+        <Button onClick={()=>listCreation(props)}style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
           Create List
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );
