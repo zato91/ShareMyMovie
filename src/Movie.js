@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search';
 import { useSelector } from "react-redux"
 import MediaCard from './MediaCard';
+import SimpleModal from './SimpleForm';
 
 
 
@@ -27,7 +28,9 @@ const Movie = () => {
                         display_url={movie.locations[0].url} 
                         
                     />
+                    
                 )}
+                 
                 </div>
            </div>
 };

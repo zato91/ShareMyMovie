@@ -1,7 +1,7 @@
 const listMovie = (state = [], action) => {
     switch (action.type) {
         case 'LISTMOVIE': 
-             return state.concat(action.payload);
+             return [...state, ...action.payload.list_movies];
         default:
             return state;
     }

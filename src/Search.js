@@ -4,7 +4,9 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {addfilm} from './actions';
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import Dialog from './Dialog';
+
 
 const useStyles = makeStyles((theme) => ({
 
@@ -22,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 export default  function Search() {
     const classes = useStyles();
     const dispatch = useDispatch()
+    const list =  useSelector(state => state.listMovie)
     // const arr = useSelector(state=> state.myMovies)
   
   const [movie, setmovie] = useState('');
@@ -31,7 +34,6 @@ export default  function Search() {
       e.preventDefault()
     let url = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${movie}&country=us`
         
-    console.log(url)
     fetch(url, {
         "method": "GET",
         "headers": {
@@ -49,7 +51,9 @@ export default  function Search() {
         console.log(err);
       });
     }
+     
     return (
+      
         <Container component="main" maxWidth="xs">
           <div className={classes.paper}>
             
@@ -79,7 +83,7 @@ export default  function Search() {
               
             </form>
           </div>
-    
+          <Dialog />
         </Container>
       );
 

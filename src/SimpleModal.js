@@ -4,29 +4,15 @@ import Modal from '@material-ui/core/Modal';
 import SimpleForm from './SimpleForm';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { useSelector } from "react-redux"
+
+
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
 
-const currencies = [
-    {
-      value: 'USD',
-      label: '$',
-    },
-    {
-      value: 'EUR',
-      label: '€',
-    },
-    {
-      value: 'BTC',
-      label: '฿',
-    },
-    {
-      value: 'JPY',
-      label: '¥',
-    },
-  ];
+
 
 let i = 1;
 let ratings =[]
@@ -34,7 +20,8 @@ while (i < 11) {
     ratings.push({value: i, label: i})
   i++;
 }
-console.log(currencies)
+
+
 
   
   
@@ -79,6 +66,17 @@ export default function SimpleModal() {
   const [currency, setCurrency] = React.useState('');
   const [list, setList] = React.useState('');
   const [rating, setRating] = React.useState(5);
+  const lists=  useSelector(state => state.listMovie)
+
+  let currencies = lists.map(list=> list.category)
+
+let y = 0;
+let rat = []
+while (y < currencies.length) {
+    rat.push({value: currencies[y], label: currencies[y]})
+  y++;
+}
+  console.log(rat)
 
   const handleOpen = () => {
     setOpen(true);
@@ -108,7 +106,7 @@ export default function SimpleModal() {
             name="list"
             label="list"
             type="list"
-            id="list"
+            
             autoComplete="current-list" >
     </TextField> 
 
@@ -125,8 +123,8 @@ export default function SimpleModal() {
           helperText="Please select your currency"
           variant="outlined"
         >
-          {currencies.map((option) => (
-            <option key={option.value} value={option.value}>
+          {rat.map((option) => (
+            <option key={option.label} value={option.value}>
               {option.label}
             </option>
           ))}
@@ -134,7 +132,7 @@ export default function SimpleModal() {
         <h4 style={{color:'black'}}>Give a rating</h4>
         <TextField
           select
-          id={rating}
+          
           value={rating}
           onChange={event => setRating(event.target.value)}
           SelectProps={{
