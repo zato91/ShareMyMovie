@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import SimpleForm from './SimpleForm';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useSelector } from "react-redux"
@@ -106,8 +105,7 @@ while (y < currencies.length) {
             name="list"
             label="list"
             type="list"
-            
-            autoComplete="current-list" >
+             >
     </TextField> 
 
     <Button  style={{margin: '20px 8px 50px'}} variant="contained" color="secondary">Or Add existing List</Button>

@@ -7,9 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import SimpleModal from './SimpleForm';
-import AddMovie from './AddMovie';
-import {Route, useHistory} from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import Dialog from './Dialog';
 
 
@@ -72,7 +70,7 @@ export default function MediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Dialog/>
+      <Dialog move={props}/>
         {/* <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
           Add movie to list
         </Button>  */}

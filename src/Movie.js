@@ -2,7 +2,7 @@ import React from 'react';
 import Search from './Search';
 import { useSelector } from "react-redux"
 import MediaCard from './MediaCard';
-import SimpleModal from './SimpleForm';
+// import SimpleModal from './SimpleForm';
 
 
 
