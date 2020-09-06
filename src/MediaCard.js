@@ -70,7 +70,7 @@ export default function MediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Dialog move={props}/>
+      <Dialog movie={props}/>
         {/* <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
           Add movie to list
         </Button>  */}

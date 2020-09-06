@@ -5,20 +5,23 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 
-export default function FormDialog() {
+
+export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
   const [list, setList] = React.useState("");
-  const [currency, setCurrency] = React.useState('');
   const lists=  useSelector(state => state.listMovie)
+  const [currency, setCurrency] = React.useState("");
+  
   const [rating, setRating] = React.useState(2);
   let currencies = lists.map(list=> list.category)
 
+  
 
   let y = 0;
     let rat = []
@@ -35,6 +38,41 @@ export default function FormDialog() {
     setOpen(false);
   };
 
+  const handleMovie = () => {
+    console.log(props.movie)
+    console.log(list)
+    fetch("http://localhost:3000/movies", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+          name: props.movie.name,
+          picture: props.movie.picture,
+          rating: rating,
+          description: props.movie.url_des,
+          extra_info: props.movie.displayOn,
+          extra_url: props.movie.display_url,
+          list_movie : list,
+          existing_list: currency,
+          id: localStorage.id
+
+      })
+      })
+      .then(res => res.json())
+      .then(data => { 
+        // if(!data.error){
+        
+          
+        //   let wrong = document.createElement("h1");
+        //   wrong.innerText = data.error
+        //   wrong.style.color = "red"
+        //   document.querySelector('.makeStyles-paper-1').append(wrong)
+        // }
+       
+      })
+  };
+  console.log(lists[0].value)
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -63,7 +101,7 @@ export default function FormDialog() {
     <TextField
         //   id="outlined-select-currency-native"
           select
-        //   label="setCurrency"
+          label="setCurrency"
           value={currency}
           onChange={event => setCurrency(event.target.value)}
           SelectProps={{
@@ -94,7 +132,10 @@ export default function FormDialog() {
 
 
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={() => {
+  handleClose();
+  handleMovie();
+} }>
             AddMovie
           </Button>
           

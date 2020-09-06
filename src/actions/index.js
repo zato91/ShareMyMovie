@@ -15,3 +15,11 @@ export const listmovie = (obj) => {
         payload: obj
     };
 }
+
+export const films = (obj) => {
+   console.log(obj)
+    return {
+        type: 'FILM',
+        payload: obj
+    };
+}

@@ -14,7 +14,7 @@ export default function Welcome() {
         .then(resp => resp.json())
         .then(data => {
            
-            
+            console.log(data)
             dispatch(listmovie(data))
         })
     }, [])
