@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { useHistory} from "react-router-dom";
 import Dialog from './Dialog';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
 
 
 
@@ -39,6 +41,7 @@ export default function MediaCard2(props) {
   const classes = useStyles();
   const history = useHistory();
   console.log(props)
+  const [value, setValue] = React.useState(2);
   
 
   function listCreation(movie){
@@ -59,7 +62,7 @@ export default function MediaCard2(props) {
             {props.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-           
+          
           <Button variant="contained" className={classes.bu} href={props.display_url} target="_blank">On: {props.displayOn}</Button>
           <Button  variant="contained" className={classes.bu} href={props.url_des} target="_blank">Description</Button>
           
@@ -69,6 +72,7 @@ export default function MediaCard2(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
+      <Rating name="read-only" value={value} readOnly />
       <CardActions>
       {/* <Dialog movie={props}/> */}
       <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
@@ -87,3 +91,7 @@ export default function MediaCard2(props) {
    
   );
 }
+
+
+
+
