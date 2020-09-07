@@ -18,7 +18,7 @@ import Dialog from './Dialog';
 const useStyles = makeStyles({
   root: {
     width: 310,
-    margin: '20px 30px',
+    margin: '20px 20px',
     height: '370'
    
     
@@ -30,14 +30,12 @@ const useStyles = makeStyles({
 
   bu: {
     margin: '5px',
-    
+    backgroundColor: '#5f9ea0',
     fontFamily: 'Indie Flower',
-    backgroundColor: "#EFFFFA",
-    color: "black",
   },
 });
 
-export default function MediaCard(props) {
+export default function MediaCard2(props) {
   const classes = useStyles();
   const history = useHistory();
   console.log(props)
@@ -72,13 +70,16 @@ export default function MediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Dialog movie={props}/>
-        {/* <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
-          Add movie to list
-        </Button>  */}
-         {/* <Button onClick={listCreation}style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
-         Create List
-        </Button> */}
+      {/* <Dialog movie={props}/> */}
+      <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
+          Edit Movie
+        </Button> 
+        <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
+          delete movie
+        </Button> 
+         <Button onClick={listCreation}style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
+         Share Movie
+        </Button>
        
       </CardActions>
     </Card>

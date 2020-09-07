@@ -98,7 +98,7 @@ export default  function Search() {
               
             </form>
           </div>
-          {/* <Dialog /> */}
+          <Dialog />
         </Container>
       );
 

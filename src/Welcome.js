@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useDispatch } from "react-redux"
-import {listmovie} from './actions';
+import {listmovie, films} from './actions';
 import SimpleModal from './SimpleModal';
 
 
@@ -16,6 +16,17 @@ export default function Welcome() {
            
             console.log(data)
             dispatch(listmovie(data))
+        })
+    }, [])
+
+
+    useEffect(() => {
+        fetch('http://localhost:3000/users/'+ localStorage.id)
+        .then(resp => resp.json())
+        .then(data => {
+           
+            console.log(data)
+            dispatch(films(data.movies))
         })
     }, [])
 

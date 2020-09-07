@@ -72,18 +72,19 @@ export default function FormDialog(props) {
        
       })
   };
-  console.log(lists[0].value)
+
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button  style={{color: "red", fontFamily:'Indie Flower'}} onClick={handleClickOpen}>
         Add Movie
       </Button>
+      
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         {/* <DialogTitle id="form-dialog-title">Subscribe</DialogTitle> */}
         <DialogContent>
-          <DialogContentText>
-            Create a List
-          </DialogContentText>
+          {/* <DialogContentText> */}
+            <h3>Create a List</h3>
+          {/* </DialogContentText> */}
           <TextField onChange={event => setList(event.target.value)}
             variant="outlined"
             margin="normal"
@@ -95,13 +96,14 @@ export default function FormDialog(props) {
            
             autoComplete="current-list" >
     </TextField> 
-    <DialogContentText>
-            Or existing List
-          </DialogContentText>
+    {/* <DialogContentText>
+            Or 
+          </DialogContentText> */}
+          <h3>or List</h3>
     <TextField
         //   id="outlined-select-currency-native"
           select
-          label="setCurrency"
+          label="List"
           value={currency}
           onChange={event => setCurrency(event.target.value)}
           SelectProps={{
@@ -132,10 +134,12 @@ export default function FormDialog(props) {
 
 
         <DialogActions>
+
+           
           <Button onClick={() => {
-  handleClose();
-  handleMovie();
-} }>
+                handleClose();
+                handleMovie();
+                } } style={{margin: 'auto'}}>
             AddMovie
           </Button>
           

@@ -74,3 +74,12 @@ a {
   padding-left: 17%;
   padding-right: 14%
 }
+
+#movies{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#movieButton {
+  display: block;
+}

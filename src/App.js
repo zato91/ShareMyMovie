@@ -9,6 +9,10 @@ import { Burger, Menu } from './components';
 import Log from './Log';
 import Welcome from './Welcome';
 import Movie from './Movie';
+import MovieList from './MovieList';
+import ShareList from './ShareList';
+import Friends from './Friends';
+import Chat from './Chat';
 
 
 
@@ -33,9 +37,15 @@ function App() {
     </ThemeProvider>
    
     <Navbar />
+    
     <Route path="/" component={Log} />
     <Route path="/welcome" component={Welcome} />
+    
     <Route path="/movie" component={Movie} />
+    <Route path="/movielist" component={MovieList} />
+    <Route path="/sharelist" component={ShareList} />
+    <Route path="/friends" component={Friends} />
+    <Route path="/chat" component={Chat} />
     
     
  

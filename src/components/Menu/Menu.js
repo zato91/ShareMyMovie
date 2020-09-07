@@ -22,23 +22,24 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true"></span>
         Find a Movie
         </Link>
-      {/* </a> */}
-      <a href="/" tabIndex={tabIndex}>
+      
+      
+      <Link to="/movielist" tabIndex={tabIndex}> 
         <span aria-hidden="true"></span>
         My List of Movie
-        </a>
-      <a href="/" tabIndex={tabIndex}>
+        </Link>
+        <Link to="/sharelist" tabIndex={tabIndex}> 
         <span aria-hidden="true"></span>
         Share List
-        </a>
-        <a href="/" tabIndex={tabIndex}>
+        </Link>
+        <Link to="/friends" tabIndex={tabIndex}> 
         <span aria-hidden="true"></span>
         Friends
-      </a>
-      <a href="/" tabIndex={tabIndex}>
+        </Link>
+        <Link to="/chat" tabIndex={tabIndex}> 
         <span aria-hidden="true"></span>
         Chat
-        </a>
+        </Link>
       <a href="/" onClick={logout} tabIndex={tabIndex}>
         <span aria-hidden="true"></span>
         Logout
