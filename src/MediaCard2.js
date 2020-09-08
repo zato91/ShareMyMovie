@@ -45,21 +45,27 @@ export default function MediaCard2(props) {
   const film = props.film
   const films = useSelector(state => state.Film)
  const dispatch = useDispatch();
+
+ function handleShare(id){
+
+  fetch('http://localhost:3000/movies/' +id, {method: 'DELETE',})
+  
+  let myFilm = films.filter(filme => filme.id !== id )
+  
+  dispatch(filter(myFilm)) 
+}
   
 
   function handleDelete(id){
 
     fetch('http://localhost:3000/movies/' +id, {method: 'DELETE',})
     
-    let myFilm = films.filter(filme => filme.id !== id )
+    let myFilm = [films.filter(filme => filme.id !== id )]
     
     dispatch(filter(myFilm)) 
   }
 
-  function handleShare(film){
-   
-
-  }
+  
 
   return (
     <Card className={classes.root} id="tosh">
@@ -93,7 +99,7 @@ export default function MediaCard2(props) {
         <Button onClick={()=>handleDelete(film.id)} style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
           delete movie
         </Button> 
-         <Button onClick={handleShare}style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
+         <Button onClick={handleShare} style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
          Share Movie
         </Button>
        

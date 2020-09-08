@@ -17,7 +17,7 @@ export const listmovie = (obj) => {
 }
 
 export const films = (obj) => {
-   console.log(obj)
+
     return {
         type: 'FILM',
         payload: obj
@@ -25,9 +25,18 @@ export const films = (obj) => {
 }
 
 export const filter = (obj) => {
-    console.log(obj)
+  
      return {
          type: 'FILTER',
+         payload: obj
+     };
+ }
+
+ 
+ export const deletelist = (obj) => {
+    console.log(obj)
+     return {
+         type: 'DeleteList',
          payload: obj
      };
  }

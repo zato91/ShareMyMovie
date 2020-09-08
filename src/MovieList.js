@@ -7,7 +7,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import listMovie from './reducers/ListMovie';
 import Movie from './Movie';
 import Film from './reducers/Film';
-import {filter} from './actions' 
+import {filter, deletelist, films} from './actions' 
  
 
 const useStyles = makeStyles((theme) => ({
@@ -45,10 +45,21 @@ const MovieList = () => {
  
 console.log(lists)
 
-// function changeFilm(){
-//   films.filter(film => film => {lists.map( list => film.list_movie_id === list.id)})
-//  return
-// }
+function handleList(e){
+  let listId = Number(e.target.parentNode.id)
+  console.log('http://localhost:3000/list_movies/' + listId)
+  fetch('http://localhost:3000/list_movies/' + listId, {method: 'DELETE',})
+
+ 
+ let listNew = lists.filter(lisT => lisT.id !== listId )
+ console.log(listNew)
+ dispatch(deletelist(listNew))
+//  dispatch(filter(films)
+let myFilm = []
+dispatch(filter(myFilm))
+ 
+}
+
 
 function hello(e){
   
@@ -84,7 +95,7 @@ function hello(e){
                     </div>
 
                    { lists.map(list => <div style={{display: 'flex'}}><Button onClick={(e)=> hello(e)}  data-id={list.id} id={list.id} data-category={list.category} list={list} variant="contained" color="primary" className={classes.block}>{list.category}</Button>
-                    <Button style={{color: "red", fontFamily:'Indie Flower', marginLeft: '-20%',
+                    <Button onClick={(e)=> handleList(e)} data-id={list.id} id={list.id} style={{color: "red", fontFamily:'Indie Flower', marginLeft: '-20%',
     marginBottom:' 10%', width:'20%'}} size="small" className={classes.root}>X</Button></div>)
                     }
                     </Grid>
