@@ -10,7 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import { useHistory} from "react-router-dom";
 import Dialog from './Dialog';
 import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
+import Film from './reducers/Film';
+import {filter} from './actions';
+import {useSelector, useDispatch} from 'react-redux'
 
 
 
@@ -41,13 +43,21 @@ export default function MediaCard2(props) {
   const classes = useStyles();
   const history = useHistory();
   const film = props.film
+  const films = useSelector(state => state.Film)
+ const dispatch = useDispatch();
   
-  const [value, setValue] = React.useState(2);
 
-  
+  function handleDelete(id){
 
-  function listCreation(movie){
-    history.push("/movie/form") 
+    fetch('http://localhost:3000/movies/' +id, {method: 'DELETE',})
+    
+    let myFilm = films.filter(filme => filme.id !== id )
+    
+    dispatch(filter(myFilm)) 
+  }
+
+  function handleShare(film){
+   
 
   }
 
@@ -80,10 +90,10 @@ export default function MediaCard2(props) {
       <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
           Edit Movie
         </Button> 
-        <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
+        <Button onClick={()=>handleDelete(film.id)} style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
           delete movie
         </Button> 
-         <Button onClick={listCreation}style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
+         <Button onClick={handleShare}style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
          Share Movie
         </Button>
        
