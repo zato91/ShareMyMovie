@@ -23,3 +23,11 @@ export const films = (obj) => {
         payload: obj
     };
 }
+
+export const filter = (obj) => {
+    console.log(obj)
+     return {
+         type: 'FILTER',
+         payload: obj
+     };
+ }

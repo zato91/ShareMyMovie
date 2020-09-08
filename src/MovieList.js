@@ -7,6 +7,8 @@ import {useSelector, useDispatch} from 'react-redux'
 import listMovie from './reducers/ListMovie';
 import Movie from './Movie';
 import Film from './reducers/Film';
+import {filter} from './actions' 
+ 
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,8 +39,9 @@ const MovieList = () => {
 
  const classes = useStyles();
  const lists = useSelector(state => state.listMovie)
- var films = useSelector(state => state.Film)
-var myFlim = films
+ const films = useSelector(state => state.Film)
+ const dispatch = useDispatch();
+
  
 console.log(lists)
 
@@ -49,15 +52,25 @@ console.log(lists)
 
 function hello(e){
   
-  let id = Number(e.target.parentNode.id)
-   myFilm = films.filter(film => (film.list_movie_id === id) )
-   
-  
-}
-// function Parent(props) {
-//     const [lines, setLines] = useState([0]);  
-//     return lines.map(m => <Child key={m} caption={`Click ${m}`} pstate={{lines, setLines}}/>);
-//   }
+     let listId = Number(e.target.parentNode.id)
+
+    fetch('http://localhost:3000/users/'+ localStorage.id)
+          .then(resp => resp.json())
+          .then(data => {
+              if(listId){
+
+              console.log(data.movies)
+              console.log(listId)
+    let myFilm = data.movies.filter(film => film.list_movie_id === listId )
+    console.log(myFilm)
+    dispatch(filter(myFilm)) } else {
+      dispatch(filter(data.movies))
+    }
+    
+     })
+
+} 
+
   
 
 
@@ -69,13 +82,17 @@ function hello(e){
                     {/* <Button variant="contained" color="primary" className={classes.block}>All Movie</Button>
                     <Button variant="contained" color="primary" className={classes.block}>All Movie</Button> */}
                     {/* <Button list={list} variant="contained"  className={classes.block}>All Movie</Button> */}
+                    <div style={{display: 'flex'}}><Button onClick={(e)=> hello(e)} variant="contained" color="primary" className={classes.block}>All Movie</Button>
+                    <Button style={{color: "red", fontFamily:'Indie Flower', marginLeft: '-20%',
+    marginBottom:' 10%', width:'20%'}} size="small" className={classes.root}>X</Button></div>
+
                    { lists.map(list => <div style={{display: 'flex'}}><Button onClick={(e)=> hello(e)}  data-id={list.id} id={list.id} data-category={list.category} list={list} variant="contained" color="primary" className={classes.block}>{list.category}</Button>
                     <Button style={{color: "red", fontFamily:'Indie Flower', marginLeft: '-20%',
     marginBottom:' 10%', width:'20%'}} size="small" className={classes.root}>X</Button></div>)
                     }
                     </Grid>
                     <Grid item xs={9} sm={9} id="movies" >
-                    { myFlim.map(film =>
+                    { films.map(film =>
                     <MediaCard2 key={film.id} film={film}/>
                     
                     )}
@@ -84,8 +101,8 @@ function hello(e){
            
     </div>
 )};
-
-
+                    
+                    
 
 export default MovieList;
 

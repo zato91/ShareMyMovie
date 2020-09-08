@@ -41,9 +41,9 @@ export default function MediaCard2(props) {
   const classes = useStyles();
   const history = useHistory();
   const film = props.film
-  console.log(film)
-  const [value, setValue] = React.useState(2);
   
+  const [value, setValue] = React.useState(2);
+
   
 
   function listCreation(movie){
