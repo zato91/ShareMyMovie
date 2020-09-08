@@ -83,3 +83,17 @@ a {
 #movieButton {
   display: block;
 }
+
+#pDelete {
+  /* position: absolute; */
+    font-size: 47px;
+    /* padding: 0px;
+    margin: 0px;
+    left: 84px;
+    top: -17px; */
+    color: red;
+    margin: 0px;
+    padding-left: 15px;
+    width: 5px;
+}
+

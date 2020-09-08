@@ -36,7 +36,7 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true"></span>
         Friends
         </Link>
-        <Link to="/chat" tabIndex={tabIndex}> 
+        <Link to="/welcome" tabIndex={tabIndex}> 
         <span aria-hidden="true"></span>
         Chat
         </Link>

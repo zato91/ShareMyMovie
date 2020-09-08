@@ -40,8 +40,10 @@ const useStyles = makeStyles({
 export default function MediaCard2(props) {
   const classes = useStyles();
   const history = useHistory();
-  console.log(props)
+  const film = props.film
+  console.log(film)
   const [value, setValue] = React.useState(2);
+  
   
 
   function listCreation(movie){
@@ -54,17 +56,17 @@ export default function MediaCard2(props) {
       <CardActionArea >
         <CardMedia
           className={classes.media}
-          image={props.picture}
+          image={film.picture}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {props.name}
+            {film.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
           
-          <Button variant="contained" className={classes.bu} href={props.display_url} target="_blank">On: {props.displayOn}</Button>
-          <Button  variant="contained" className={classes.bu} href={props.url_des} target="_blank">Description</Button>
+          <Button variant="contained" className={classes.bu} href={film.display_url} target="_blank">On: {film.displayOn}</Button>
+          <Button  variant="contained" className={classes.bu} href={film.url_des} target="_blank">Description</Button>
           
             
           
@@ -72,9 +74,9 @@ export default function MediaCard2(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <Rating name="read-only" value={value} readOnly />
+      <Rating name="read-only" value={film.rating} readOnly />
       <CardActions>
-      {/* <Dialog movie={props}/> */}
+      {/* <Dialog movie={film}/> */}
       <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
           Edit Movie
         </Button> 
