@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { useDispatch } from "react-redux"
 import {listmovie, films} from './actions';
-import SimpleModal from './SimpleModal';
+
 
 
 export default function Welcome() {
@@ -12,11 +12,7 @@ export default function Welcome() {
     useEffect(() => {
         fetch('http://localhost:3000/users/'+ localStorage.id)
         .then(resp => resp.json())
-        .then(data => {
-           
-            console.log(data)
-            dispatch(listmovie(data))
-        })
+        .then(data => { dispatch(listmovie(data))})
     }, [])
 
 
@@ -24,16 +20,13 @@ export default function Welcome() {
         fetch('http://localhost:3000/users/'+ localStorage.id)
         .then(resp => resp.json())
         .then(data => {
-           
-            console.log(data)
-            dispatch(films(data.movies))
-        })
+            dispatch(films(data.movies))})
     }, [])
 
     return <>
         <h1>hi {localStorage.username}</h1> 
         <img id='welcome' src="image/hi.gif" alt="Girl in a jacket"/>
-        <SimpleModal />
+        
     </>
 };
 

@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { useHistory} from "react-router-dom";
 import Dialog from './Dialog';
 
 
@@ -39,14 +38,10 @@ const useStyles = makeStyles({
 
 export default function MediaCard(props) {
   const classes = useStyles();
-  const history = useHistory();
-  console.log(props)
+
   
 
-  function listCreation(movie){
-    history.push("/movie/form") 
 
-  }
 
   return (
     <Card className={classes.root} id="tosh">
@@ -62,7 +57,7 @@ export default function MediaCard(props) {
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
            
-          <Button variant="contained" className={classes.bu} href={props.display_url} target="_blank">On: {props.displayOn}</Button>
+          <Button variant="contained" className={classes.bu} href={props.display_url} target="_blank"> {props.displayOn}</Button>
           <Button  variant="contained" className={classes.bu} href={props.url_des} target="_blank">Description</Button>
           
             
@@ -71,15 +66,8 @@ export default function MediaCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions style={{margin: 'auto',width: '34%',}}>
       <Dialog movie={props}/>
-        {/* <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
-          Add movie to list
-        </Button>  */}
-         {/* <Button onClick={listCreation}style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
-         Create List
-        </Button> */}
-       
       </CardActions>
     </Card>
 

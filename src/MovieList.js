@@ -4,10 +4,7 @@ import Button from '@material-ui/core/Button';
 import MediaCard2 from './MediaCard2'
 import Grid from '@material-ui/core/Grid';
 import {useSelector, useDispatch} from 'react-redux'
-import listMovie from './reducers/ListMovie';
-import Movie from './Movie';
-import Film from './reducers/Film';
-import {filter, deletelist, films} from './actions' 
+import {filter, deletelist} from './actions' 
  
 
 const useStyles = makeStyles((theme) => ({
@@ -69,9 +66,6 @@ function hello(e){
           .then(resp => resp.json())
           .then(data => {
               if(listId){
-
-              console.log(data.movies)
-              console.log(listId)
     let myFilm = data.movies.filter(film => film.list_movie_id === listId )
     console.log(myFilm)
     dispatch(filter(myFilm)) } else {
@@ -95,7 +89,7 @@ function hello(e){
                     </div>
 
                    { lists.map(list => <div style={{display: 'flex'}}><Button onClick={(e)=> hello(e)}  data-id={list.id} id={list.id} data-category={list.category} list={list} variant="contained" color="primary" className={classes.block}>{list.category}</Button>
-                    <Button onClick={(e)=> handleList(e)} data-id={list.id} id={list.id} style={{color: "red", fontFamily:'Indie Flower', marginLeft: '-20%',
+                    <Button onClick={(e)=> handleList(e)} data-id={list.id} id={list.id} style={{color: "red", fontFamily:'Indie Flower', marginLeft: '1%',
     marginBottom:' 10%', width:'20%'}} size="small" className={classes.root}>X</Button></div>)
                     }
                     </Grid>

@@ -38,7 +38,7 @@ const Menu = ({ open, ...props }) => {
         </Link>
         <Link to="/welcome" tabIndex={tabIndex}> 
         <span aria-hidden="true"></span>
-        Chat
+        Chat -coming soon 
         </Link>
       <a href="/" onClick={logout} tabIndex={tabIndex}>
         <span aria-hidden="true"></span>

@@ -7,10 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { useHistory} from "react-router-dom";
-import Dialog from './Dialog';
+// import Dialog from './Dialog';
 import Rating from '@material-ui/lab/Rating';
-import Film from './reducers/Film';
 import {filter} from './actions';
 import {useSelector, useDispatch} from 'react-redux'
 
@@ -23,7 +21,7 @@ const useStyles = makeStyles({
   root: {
     width: 310,
     margin: '20px 20px',
-    height: '370'
+    
    
     
   },
@@ -41,10 +39,9 @@ const useStyles = makeStyles({
 
 export default function MediaCard2(props) {
   const classes = useStyles();
-  const history = useHistory();
   const film = props.film
   const films = useSelector(state => state.Film)
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
  function handleShare(id){
 
@@ -81,8 +78,8 @@ export default function MediaCard2(props) {
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
           
-          <Button variant="contained" className={classes.bu} href={film.display_url} target="_blank">On: {film.displayOn}</Button>
-          <Button  variant="contained" className={classes.bu} href={film.url_des} target="_blank">Description</Button>
+          <Button variant="contained" className={classes.bu} href={film.extra_url} target="_blank">{film.extra_info}</Button>
+          <Button  variant="contained" className={classes.bu} href={film.description} target="_blank">Description</Button>
           
             
           

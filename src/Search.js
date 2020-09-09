@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {addfilm} from './actions';
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
 
 
@@ -25,24 +25,9 @@ const useStyles = makeStyles((theme) => ({
 export default  function Search() {
     const classes = useStyles();
     const dispatch = useDispatch()
-    const list =  useSelector(state => state.listMovie)
-    // const arr = useSelector(state=> state.myMovies)
+   
   
   const [movie, setmovie] = useState('');
-
-
-  
-
-    // useEffect(() => {
-    //     fetch('http://localhost:3000/users/'+ localStorage.id)
-    //     .then(resp => resp.json())
-    //     .then(data => {
-           
-            
-    //         dispatch(listmovie(data))
-    //     })
-    // }, [])
-  
 
   let  handleSubmit = (e) => {
       e.preventDefault()
