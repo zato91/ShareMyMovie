@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 // import Dialog from './Dialog';
 import Rating from '@material-ui/lab/Rating';
-import {filter} from './actions';
+import {deletemovie} from './actions';
 import {useSelector, useDispatch} from 'react-redux'
 
 
@@ -45,21 +45,18 @@ export default function MediaCard2(props) {
 
  function handleShare(id){
 
-  fetch('http://localhost:3000/movies/' +id, {method: 'DELETE',})
+  // fetch('http://localhost:3000/movies/' +id, {method: 'DELETE',})
   
-  let myFilm = films.filter(filme => filme.id !== id )
+  // let myFilm = films.filter(filme => filme.id !== id )
   
-  dispatch(filter(myFilm)) 
+  // dispatch(filter(myFilm)) 
 }
   
 
   function handleDelete(id){
-
+    
     fetch('http://localhost:3000/movies/' +id, {method: 'DELETE',})
-    
-    let myFilm = [films.filter(filme => filme.id !== id )]
-    
-    dispatch(filter(myFilm)) 
+    dispatch(deletemovie(id)) 
   }
 
   
@@ -96,7 +93,7 @@ export default function MediaCard2(props) {
         <Button onClick={()=>handleDelete(film.id)} style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
           delete movie
         </Button> 
-         <Button onClick={handleShare} style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
+         <Button onClick={()=>handleShare(film.id)} style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
          Share Movie
         </Button>
        

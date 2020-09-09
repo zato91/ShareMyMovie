@@ -12,7 +12,7 @@ export default function Welcome() {
     useEffect(() => {
         fetch('http://localhost:3000/users/'+ localStorage.id)
         .then(resp => resp.json())
-        .then(data => { dispatch(listmovie(data))})
+        .then(data => { dispatch(listmovie(data))     }  )
     }, [])
 
 

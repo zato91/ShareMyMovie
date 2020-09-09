@@ -13,6 +13,10 @@ const Film = (state = [], action) => {
             case 'FILTER':
                 state = []
                 return state.concat(action.payload);
+
+            case 'DeleteMovie':
+                 
+                return state.filter(stat => stat.id !== action.payload )
         default:
             return state;
     }
