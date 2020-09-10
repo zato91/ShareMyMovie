@@ -97,3 +97,19 @@ a {
     width: 5px;
 }
 
+#friends{
+  background: url('https://38.media.tumblr.com/f27ea520302b085d20d880e8f4ad4d59/tumblr_mlzxilVczE1r72ht7o1_500.gif');
+  background-repeat: no-repeat;
+  width: 700px;
+  height: 400px;
+  position: absolute;
+  margin-left: 35%;
+  margin-top: 14%;
+ 
+}
+
+#poto{
+  
+    
+    margin-right: 150px;
+}

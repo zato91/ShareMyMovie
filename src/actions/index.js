@@ -65,3 +65,11 @@ export const filter = (obj) => {
         payload: obj
     };
  }
+
+
+ export const deletefriend =(obj)=>{
+    return {
+        type: 'DELETEFRIEND',
+        payload: obj
+    };
+ }
