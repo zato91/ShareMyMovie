@@ -18,18 +18,18 @@ const Friends = () => {
     }
     return (
       <>  
-      <div id="friends"></div>
-    <div style={{ display:'inline-block'}}><h1>Follow Friends</h1> 
+      
+    <div style={{ display:'inline-block'}}><h1>Follow Friend</h1> 
     <ComboBox friends={friends}/>
     
     {/* <Button variant="contained" color="primary">
             Add friend
           </Button> */}
     
-            
-   <div id="poto">{friends.map(fro => <div id="poto1"><Button  variant="contained" color="primary">{fro}</Button> 
-          <Button onClick={(()=>handledelete(fro))} style={{ display:'inline-block'}} variant="contained" color="red">X</Button></div>
-          )}</div>
+    <div id="friends">     
+   <div id="poto">{friends.map(fro => <div id="poto1"><Button  style={{fontFamily:'Indie Flower',backgroundColor:'#d5f5eb',color:'black', width:'250px',marginBottom:'10px'}} variant="contained" color="primary">{fro}</Button> 
+          <Button onClick={(()=>handledelete(fro))} style={{fontFamily:'Indie Flower',backgroundColor:'#d5f5eb', display:'inline-block', marginRight:'83px',marginBottom:'10px'}} variant="contained" color="red">X</Button></div>
+          )}</div></div> 
       
      
       

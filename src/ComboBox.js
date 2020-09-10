@@ -37,7 +37,7 @@ export default function ComboBox(props) {
       renderInput={(params) => <TextField {...params}  label="Combo box" variant="outlined" />}
     />
     
-    <Button  onClick={(e)=>hello(e)}variant="contained" background-color="#EFFFFA" style={{width:'300px', marginRight: '50px'}}>
+    <Button  onClick={(e)=>hello(e)}variant="contained"  style={{fontFamily:'Indie Flower',backgroundColor:'#d5f5eb',width:'300px', marginRight: '50px'}}>
             Add friend
           </Button>
           </>
@@ -46,3 +46,5 @@ export default function ComboBox(props) {
 
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
+// font-family: Indie Flower;
+//     background-color: #d5f5eb;
