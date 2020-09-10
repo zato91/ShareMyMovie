@@ -8,6 +8,7 @@ import { theme } from './theme';
 import { Burger, Menu } from './components';
 import Log from './Log';
 import Welcome from './Welcome';
+import Goodbye from './Goodbye';
 import Movie from './Movie';
 import MovieList from './MovieList';
 import ShareList from './ShareList';
@@ -40,7 +41,7 @@ function App() {
     
     <Route path="/" component={Log} />
     <Route path="/welcome" component={Welcome} />
-    
+    <Route path="/goodbye" component={Goodbye} />
     <Route path="/movie" component={Movie} />
     <Route path="/movielist" component={MovieList} />
     <Route path="/sharelist" component={ShareList} />

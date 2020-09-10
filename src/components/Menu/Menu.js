@@ -41,7 +41,7 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true"></span>
         New Feature -coming soon 
         </Link>
-      <a href="/" onClick={logout} tabIndex={tabIndex}>
+      <a href="/goodbye" onClick={logout} tabIndex={tabIndex}>
         <span aria-hidden="true"></span>
         Logout
         </a>

@@ -19,7 +19,7 @@ const Friends = () => {
     return (
       <>  
       
-    <div style={{ display:'inline-block'}}><h1>Follow Friend</h1> 
+    <div style={{ display:'inline-block'}}><h1>Connect with Friend</h1> 
     <ComboBox friends={friends}/>
     
     {/* <Button variant="contained" color="primary">
