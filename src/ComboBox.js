@@ -37,7 +37,7 @@ export default function ComboBox(props) {
       renderInput={(params) => <TextField {...params}  label="Combo box" variant="outlined" />}
     />
     
-    <Button  onClick={(e)=>hello(e)}variant="contained"  style={{fontFamily:'Indie Flower',backgroundColor:'#d5f5eb',width:'300px', marginRight: '50px'}}>
+    <Button  onClick={(e)=>hello(e)}variant="contained"  style={{fontFamily:'Indie Flower',backgroundColor:'#d5f5eb',width:'300px', marginRight: '172px'}}>
             Add friend
           </Button>
           </>

@@ -95,7 +95,7 @@ function renderlist(e){
                     </Grid>
                     <Grid item xs={9} sm={9} id="movies" >
                     { films.map(film =>
-                    <MediaCard2 key={film.id} film={film}/>
+                    <MediaCard2  key={film.id} film={film}/>
                     
                     )}
                     </Grid>

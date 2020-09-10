@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 import {deletemovie} from './actions';
 import {useSelector, useDispatch} from 'react-redux'
+import Dialog2 from "./Dialog2"
 
 
 
@@ -62,7 +63,7 @@ export default function MediaCard2(props) {
   
 
   return (
-    <Card className={classes.root} id="tosh">
+    <Card className={classes.root} id="tosh" style={{maxHeight:"470px"}}>
       <CardActionArea >
         <CardMedia
           className={classes.media}
@@ -87,15 +88,16 @@ export default function MediaCard2(props) {
       <Rating name="read-only" value={film.rating} readOnly />
       <CardActions>
       {/* <Dialog movie={film}/> */}
-      <Button style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
+      <Button style={{color: "red", fontFamily:'Indie Flower',height:"30px" }} size="small" className={classes.root}>
           Edit Movie
         </Button> 
-        <Button onClick={()=>handleDelete(film.id)} style={{color: "red", fontFamily:'Indie Flower'}} size="small" className={classes.root}>
+        <Button onClick={()=>handleDelete(film.id)} style={{color: "red", fontFamily:'Indie Flower',height:"30px"}} size="small" className={classes.root}>
           delete movie
         </Button> 
-         <Button onClick={()=>handleShare(film.id)} style={{color: "red", fontFamily:'Indie Flower'}} className={classes.root}>
+         {/* <Button onClick={()=>handleShare(film.id)} style={{color: "red", fontFamily:'Indie Flower',height:"30px"}} className={classes.root}>
          Share Movie
-        </Button>
+        </Button> */}
+        <Dialog2 />
        
       </CardActions>
     </Card>
