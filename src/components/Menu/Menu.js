@@ -28,17 +28,18 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true"></span>
         My List of Movie
         </Link>
-        <Link to="/sharelist" tabIndex={tabIndex}> 
-        <span aria-hidden="true"></span>
-        Share List
-        </Link>
+        
         <Link to="/friends" tabIndex={tabIndex}> 
         <span aria-hidden="true"></span>
         Friends
         </Link>
+        <Link to="/sharelist" tabIndex={tabIndex}> 
+        <span aria-hidden="true"></span>
+        recommended movies
+        </Link>
         <Link to="/welcome" tabIndex={tabIndex}> 
         <span aria-hidden="true"></span>
-        Chat -coming soon 
+        New Feature -coming soon 
         </Link>
       <a href="/" onClick={logout} tabIndex={tabIndex}>
         <span aria-hidden="true"></span>

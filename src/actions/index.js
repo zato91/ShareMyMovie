@@ -49,3 +49,19 @@ export const filter = (obj) => {
          payload: obj
      };
  }
+
+
+ export const allFriend =(obj)=>{
+    return {
+        type: 'ALLFRIEND',
+        payload: obj
+    };
+ }
+
+
+ export const friend =(obj)=>{
+    return {
+        type: 'FRIEND',
+        payload: obj
+    };
+ }

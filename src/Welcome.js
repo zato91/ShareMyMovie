@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useDispatch } from "react-redux"
-import {listmovie, films} from './actions';
+import {listmovie, films, allFriend} from './actions';
 
 
 
@@ -21,6 +21,25 @@ export default function Welcome() {
         .then(resp => resp.json())
         .then(data => {
             dispatch(films(data.movies))})
+    }, [])
+
+
+    useEffect(() => {
+        fetch('http://localhost:3000/users/')
+        .then(resp => resp.json())
+        .then(data => {  
+        
+        let newUser = data.map(dat => {
+            const container = {};
+            container.title = dat.username;
+            container.year = dat.id;
+            
+            return container
+        
+        } )
+        dispatch(allFriend(newUser))  
+        
+        })
     }, [])
 
     return <>
