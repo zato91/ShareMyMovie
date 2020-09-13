@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import {listmovie, films, allFriend} from './actions';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import { ThemeProvider } from 'styled-components';
@@ -14,6 +15,8 @@ import MovieList from './MovieList';
 import ShareList from './ShareList';
 import Friends from './Friends';
 import Chat from './Chat';
+import { useDispatch } from "react-redux"
+
 
 
 
@@ -26,12 +29,14 @@ function App() {
   const dispatch = useDispatch()
     
 
-
+// if(localStorage.id){
   useEffect(() => {
       fetch('http://localhost:3000/users/'+ localStorage.id)
       .then(resp => resp.json())
-      .then(data => { dispatch(listmovie(data))     }  )
-  }, [])
+      .then(data => { dispatch(listmovie(data))})
+    }
+   ,[]) 
+  // }
 
 
   useEffect(() => {
@@ -39,7 +44,7 @@ function App() {
       .then(resp => resp.json())
       .then(data => {
           dispatch(films(data.movies))})
-  }, [])
+  }, [films])
 
 
   useEffect(() => {
@@ -58,8 +63,8 @@ function App() {
       dispatch(allFriend(newUser))  
       
       })
-  }, [])
-  
+  }, [allFriend])
+
 
   useOnClickOutside(node, () => setOpen(false));
   return (
