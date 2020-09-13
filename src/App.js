@@ -23,7 +23,42 @@ function App() {
   const [open, setOpen] = useState(false);
   const node = useRef();
   const menuId = "main-menu";
- 
+  const dispatch = useDispatch()
+    
+
+
+  useEffect(() => {
+      fetch('http://localhost:3000/users/'+ localStorage.id)
+      .then(resp => resp.json())
+      .then(data => { dispatch(listmovie(data))     }  )
+  }, [])
+
+
+  useEffect(() => {
+      fetch('http://localhost:3000/users/'+ localStorage.id)
+      .then(resp => resp.json())
+      .then(data => {
+          dispatch(films(data.movies))})
+  }, [])
+
+
+  useEffect(() => {
+      fetch('http://localhost:3000/users/')
+      .then(resp => resp.json())
+      .then(data => {  
+      
+      let newUser = data.map(dat => {
+          const container = {};
+          container.title = dat.username;
+          container.year = dat.id;
+          
+          return container
+      
+      } )
+      dispatch(allFriend(newUser))  
+      
+      })
+  }, [])
   
 
   useOnClickOutside(node, () => setOpen(false));
