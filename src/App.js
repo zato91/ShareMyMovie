@@ -29,41 +29,59 @@ function App() {
   const dispatch = useDispatch()
     
 
-// if(localStorage.id){
+
   useEffect(() => {
+    if(localStorage.id){
       fetch('http://localhost:3000/users/'+ localStorage.id)
       .then(resp => resp.json())
-      .then(data => { dispatch(listmovie(data))})
-    }
-   ,[]) 
-  // }
+      .then(data => { dispatch(listmovie(data))}) }
 
-
-  useEffect(() => {
       fetch('http://localhost:3000/users/'+ localStorage.id)
       .then(resp => resp.json())
       .then(data => {
           dispatch(films(data.movies))})
-  }, [films])
 
-
-  useEffect(() => {
-      fetch('http://localhost:3000/users/')
-      .then(resp => resp.json())
-      .then(data => {  
-      
-      let newUser = data.map(dat => {
-          const container = {};
-          container.title = dat.username;
-          container.year = dat.id;
+          // fetch('http://localhost:3000/users/')
+          // .then(resp => resp.json())
+          // .then(data =>    data)
           
-          return container
+          // let newUser = data.map(dat => {
+          //     const container = {};
+          //     container.title = dat.username;
+          //     container.year = dat.id;
+              
+          //     return container
+
+    //  ,[]) 
+  
+  // }
+},[]) 
+
+  // useEffect(() => {
+  //     fetch('http://localhost:3000/users/'+ localStorage.id)
+  //     .then(resp => resp.json())
+  //     .then(data => {
+  //         dispatch(films(data.movies))})
+  // }, [films])
+
+
+  // useEffect(() => {
+  //     fetch('http://localhost:3000/users/')
+  //     .then(resp => resp.json())
+  //     .then(data => {  
       
-      } )
-      dispatch(allFriend(newUser))  
+  //     let newUser = data.map(dat => {
+  //         const container = {};
+  //         container.title = dat.username;
+  //         container.year = dat.id;
+          
+  //         return container
       
-      })
-  }, [allFriend])
+  //     } )
+  //     dispatch(allFriend(newUser))  
+      
+  //     })
+  // }, [allFriend])
 
 
   useOnClickOutside(node, () => setOpen(false));
