@@ -12,9 +12,6 @@ import { useHistory } from "react-router-dom";
 
 
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -57,6 +54,34 @@ export default function Login() {
 }
 
   let handleSubmit = (e) => {
+    // e.preventDefault()
+    // fetch("http://localhost:3000/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //       username: username,
+    //       password: password
+    //   })
+    //   })
+    //   .then(res => res.json())
+    //   .then(data => { 
+    //     if(data.token){
+    //     localStorage.token = data.token
+    //     localStorage.username = data.user.username 
+    //     localStorage.id = data.user.id 
+    //     }else {
+          
+    //       let wrong = document.createElement("h1");
+    //       wrong.innerText = data.error
+    //       wrong.style.color = "red"
+    //       document.querySelector('.makeStyles-paper-1').append(wrong)
+    //     }
+    //     console.log(localStorage.username) 
+    //     console.log(data.error)  
+    //   })
+
     e.preventDefault()
     fetch("http://localhost:3000/login", {
       method: "POST",
@@ -69,23 +94,11 @@ export default function Login() {
       })
       })
       .then(res => res.json())
-      .then(data => { 
-        if(data.token){
+      .then(data => {
         localStorage.token = data.token
         localStorage.username = data.user.username 
-        localStorage.id = data.user.id 
-        }else {
-          
-          let wrong = document.createElement("h1");
-          wrong.innerText = data.error
-          wrong.style.color = "red"
-          document.querySelector('.makeStyles-paper-1').append(wrong)
-        }
-        console.log(localStorage.username) 
-        console.log(data.error)  
+        localStorage.id = data.user.id  
       })
-
-      
       
 
 
