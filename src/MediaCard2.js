@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 // import Dialog from './Dialog';
 import Rating from '@material-ui/lab/Rating';
 import {deletemovie} from './actions';
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import Dialog2 from "./Dialog2"
 
 
@@ -41,18 +41,10 @@ const useStyles = makeStyles({
 export default function MediaCard2(props) {
   const classes = useStyles();
   const film = props.film
-  const films = useSelector(state => state.Film)
+ 
   const dispatch = useDispatch();
 
- function handleShare(id){
 
-  // fetch('http://localhost:3000/movies/' +id, {method: 'DELETE',})
-  
-  // let myFilm = films.filter(filme => filme.id !== id )
-  
-  // dispatch(filter(myFilm)) 
-}
-  
 
   function handleDelete(id){
     

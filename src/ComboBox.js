@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useDispatch, useSelector } from "react-redux"
-import {Users} from './actions'
+
 import Button from '@material-ui/core/Button';
 import {friend} from './actions'
 
@@ -44,7 +44,3 @@ export default function ComboBox(props) {
   );
 }
 
-
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-// font-family: Indie Flower;
-//     background-color: #d5f5eb;

@@ -3,7 +3,8 @@
 const Film = (state = [], action) => {
     switch (action.type) {
         case 'FILM': 
-        console.log(action.payload)
+       state =[]
+        console.log(state.concat(action.payload))
                 return state.concat(action.payload);
            
             case 'FILTER':

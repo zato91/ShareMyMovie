@@ -5,20 +5,15 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import { useSelector } from "react-redux"
-import Rating from '@material-ui/lab/Rating';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 
 
 
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
-  const [list, setList] = React.useState("");
+
   const friends=  useSelector(state => state.Friends)
   const [currency, setCurrency] = React.useState("");
-  
-  const [rating, setRating] = React.useState(2);
-  // let currencies = lists.map(list=> list.category)
+
 
   
 
@@ -46,13 +41,9 @@ export default function FormDialog(props) {
       </Button>
       
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        {/* <DialogTitle id="form-dialog-title">Subscribe</DialogTitle> */}
+    
         <DialogContent>
-         
-  
-    {/* <DialogContentText>
-            Or 
-          </DialogContentText> */}
+
           <h3>Share To</h3>
     <TextField
         //   id="outlined-select-currency-native"

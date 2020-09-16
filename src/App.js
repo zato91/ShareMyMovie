@@ -31,6 +31,7 @@ function App() {
 
 
   useEffect(() => {
+    
     if(localStorage.id){
       fetch('http://localhost:3000/users/'+ localStorage.id)
       .then(resp => resp.json())
@@ -43,47 +44,24 @@ function App() {
 
 
 
-          // fetch('http://localhost:3000/users/')
-          // .then(resp => resp.json())
-          // .then(data =>    data)
-          
-          // let newUser = data.map(dat => {
-          //     const container = {};
-          //     container.title = dat.username;
-          //     container.year = dat.id;
-              
-          //     return container
+      fetch('http://localhost:3000/users/')
+      .then(resp => resp.json())
+      .then(data => {  
+      
+      let newUser = data.map(dat => {
+          const container = {};
+          container.title = dat.username;
+          container.year = dat.id;
+          return container
+      })
 
-    //  ,[]) 
-  
-  // }
+      dispatch(allFriend(newUser))  
+      
+      })
+
 },[]) 
 
-  // useEffect(() => {
-  //     fetch('http://localhost:3000/users/'+ localStorage.id)
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //         dispatch(films(data.movies))})
-  // }, [films])
-
-
-  // useEffect(() => {
-  //     fetch('http://localhost:3000/users/')
-  //     .then(resp => resp.json())
-  //     .then(data => {  
-      
-  //     let newUser = data.map(dat => {
-  //         const container = {};
-  //         container.title = dat.username;
-  //         container.year = dat.id;
-          
-  //         return container
-      
-  //     } )
-  //     dispatch(allFriend(newUser))  
-      
-  //     })
-  // }, [allFriend])
+ 
 
 
   useOnClickOutside(node, () => setOpen(false));

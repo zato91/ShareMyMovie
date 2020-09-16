@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import MediaCard2 from './MediaCard2'
 import Grid from '@material-ui/core/Grid';
 import {useSelector, useDispatch} from 'react-redux'
-import {filter, deletelist, films} from './actions' 
+import {filter, deletelist} from './actions' 
  
 
 const useStyles = makeStyles((theme) => ({
@@ -39,13 +39,6 @@ const MovieList = () => {
  const films = useSelector(state => state.Film)
  const dispatch = useDispatch();
 
-//  useEffect(() => {
-//   fetch('http://localhost:3000/users/'+ localStorage.id)
-//   .then(resp => resp.json())
-//   .then(data => { dispatch(films(data.movies))
-//       console.log(data.movies)  })
-// }, [])
-
 
 
 function deleteList(e){
@@ -68,7 +61,7 @@ function renderlist(e){
     fetch('http://localhost:3000/users/'+ localStorage.id)
           .then(resp => resp.json())
           .then(data => {
-               if(list_id == 0 ){
+               if(list_id === 0 ){
                 dispatch(filter(data.movies)) } else {
     let myFilm = data.movies.filter(film => film.list_movie_id === list_id )
     dispatch(filter(myFilm))}

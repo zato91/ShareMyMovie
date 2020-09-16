@@ -7,10 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-// import Dialog from './Dialog';
 import Rating from '@material-ui/lab/Rating';
-import {deletemovie} from './actions';
-import {useSelector, useDispatch} from 'react-redux'
+
 
 
 
@@ -40,8 +38,8 @@ const useStyles = makeStyles({
 export default function MediaCard3(props) {
   const classes = useStyles();
   const film = props.film
-  const films = useSelector(state => state.Film)
-  const dispatch = useDispatch();
+
+
 
   
 
