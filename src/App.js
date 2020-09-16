@@ -38,8 +38,10 @@ function App() {
 
       fetch('http://localhost:3000/users/'+ localStorage.id)
       .then(resp => resp.json())
-      .then(data => {
+      .then(data => { console.log(data.movies)
           dispatch(films(data.movies))})
+
+
 
           // fetch('http://localhost:3000/users/')
           // .then(resp => resp.json())
