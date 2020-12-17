@@ -33,44 +33,35 @@ const useStyles = makeStyles((theme) => ({
  
 
 const MovieList = () => {
+  const classes = useStyles();
+  const lists = useSelector(state => state.listMovie)
+  const films = useSelector(state => state.Film)
+  const dispatch = useDispatch();
 
- const classes = useStyles();
- const lists = useSelector(state => state.listMovie)
- const films = useSelector(state => state.Film)
- const dispatch = useDispatch();
+  function deleteList(e){
+    let listId = Number(e.target.parentNode.id)
+    
+    fetch('http://localhost:3000/list_movies/' + listId, {method: 'DELETE',})
 
+  dispatch(deletelist(listId))
 
+  let myFilm = []
+  dispatch(filter(myFilm))
+  }
 
-function deleteList(e){
-  let listId = Number(e.target.parentNode.id)
-  
-  fetch('http://localhost:3000/list_movies/' + listId, {method: 'DELETE',})
-
- dispatch(deletelist(listId))
-
-let myFilm = []
-dispatch(filter(myFilm))
- 
-}
-
-
-function renderlist(e){
-  
-     let list_id = Number(e.target.parentNode.id)
-     console.log(list_id)
-    fetch('http://localhost:3000/users/'+ localStorage.id)
-          .then(resp => resp.json())
-          .then(data => {
-               if(list_id === 0 ){
-                dispatch(filter(data.movies)) } else {
-    let myFilm = data.movies.filter(film => film.list_movie_id === list_id )
-    dispatch(filter(myFilm))}
-              
-     })
-}
-
-  
-
+  function renderlist(e){
+    
+      let list_id = Number(e.target.parentNode.id)
+      console.log(list_id)
+      fetch('http://localhost:3000/users/'+ localStorage.id)
+            .then(resp => resp.json())
+            .then(data => {
+                if(list_id === 0 ){
+                  dispatch(filter(data.movies)) } else {
+                    let myFilm = data.movies.filter(film => film.list_movie_id === list_id )
+                    dispatch(filter(myFilm))}
+            })
+  }
 
     return( <div  className={classes.root}>
                 <h1>All My Movies</h1>
@@ -98,6 +89,5 @@ function renderlist(e){
 )};
                     
                     
-
 export default MovieList;
 

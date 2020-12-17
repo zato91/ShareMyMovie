@@ -14,17 +14,10 @@ import {useDispatch} from 'react-redux'
 import Dialog2 from "./Dialog2"
 
 
-
-
-
-
 const useStyles = makeStyles({
   root: {
     width: 310,
-    margin: '20px 20px',
-    
-   
-    
+    margin: '20px 20px', 
   },
   media: {
     height: 140,
@@ -51,8 +44,6 @@ export default function MediaCard2(props) {
     fetch('http://localhost:3000/movies/' +id, {method: 'DELETE',})
     dispatch(deletemovie(id)) 
   }
-
-  
 
   return (
     <Card className={classes.root} id="tosh" style={{maxHeight:"470px"}}>
@@ -92,9 +83,7 @@ export default function MediaCard2(props) {
         <Dialog2 />
        
       </CardActions>
-    </Card>
-
-   
+    </Card> 
   );
 }
 

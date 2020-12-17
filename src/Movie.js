@@ -11,15 +11,11 @@ import MediaCard from './MediaCard';
 const Movie = () => {
     const movies =  useSelector(state => state.myMovies)
    
-    
-
     return <div>
                 <h1>Find a Movie </h1>
-                
                 <Search />
                 <div id='movie'>
-                
-                {  movies.map((movie) => 
+                {movies.map((movie) => 
                     <MediaCard 
                         name={movie.name} 
                         picture={movie.picture} 
@@ -27,10 +23,8 @@ const Movie = () => {
                         displayOn={movie.locations[0].display_name} 
                         display_url={movie.locations[0].url} 
                         
-                    />
-                    
+                    />    
                 )}
-                 
                 </div>
            </div>
 };

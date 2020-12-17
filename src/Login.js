@@ -82,26 +82,6 @@ export default function Login() {
           
       })
 
-    // e.preventDefault()
-    // fetch("http://localhost:3000/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //       username: username,
-    //       password: password
-    //   })
-    //   })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     localStorage.token = data.token
-    //     localStorage.username = data.user.username 
-    //     localStorage.id = data.user.id  
-    //   })
-      
-
-
   }
 
   return (
