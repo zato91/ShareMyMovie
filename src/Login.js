@@ -55,6 +55,7 @@ export default function Login() {
 
   let handleSubmit = (e) => {
     e.preventDefault()
+    
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
@@ -78,8 +79,7 @@ export default function Login() {
           wrong.style.color = "red"
           document.querySelector('.makeStyles-paper-1').append(wrong)
         }
-        console.log(localStorage.username) 
-        console.log(data.error)  
+          
       })
 
     // e.preventDefault()

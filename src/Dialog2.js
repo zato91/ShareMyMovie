@@ -15,8 +15,6 @@ export default function FormDialog(props) {
   const [currency, setCurrency] = React.useState("");
 
 
-  
-
   let y = 0;
     let rat = []
     while (y < friends.length) {
@@ -43,43 +41,34 @@ export default function FormDialog(props) {
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
     
         <DialogContent>
-
           <h3>Share To</h3>
-    <TextField
-        //   id="outlined-select-currency-native"
-          select
-          label="List"
-          value={currency}
-          onChange={event => setCurrency(event.target.value)}
-          SelectProps={{
-            native: true,
-          }}
-          helperText="Please select your list"
-          variant="outlined"
-        >
-          {rat.map((option) => (
-            <option key={option.label} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </TextField>
+          <TextField
+            //   id="outlined-select-currency-native"
+              select
+              label="List"
+              value={currency}
+              onChange={event => setCurrency(event.target.value)}
+              SelectProps={{
+                native: true,
+              }}
+              helperText="Please select your list"
+              variant="outlined"
+            >
+              {rat.map((option) => (
+                <option key={option.label} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </TextField>
         </DialogContent>
-      
-
-
-
-        <DialogActions>
-
-           
+        <DialogActions>        
           <Button onClick={() => {
                 handleClose();
                 
                 } } style={{margin: 'auto'}}>
             Share Movie
-          </Button>
-          
+          </Button>        
         </DialogActions>
-        
       </Dialog>
     </div>
   );
