@@ -9,7 +9,13 @@ import {friend} from './actions'
 export default function ComboBox(props) {
     const dispatch = useDispatch()
     const users = useSelector(state => state.Users)
+   
+    
+
     const top100Films = users
+
+      
+ 
 
     function hello(e){
        
@@ -18,6 +24,7 @@ export default function ComboBox(props) {
       dispatch(friend(x))
     }
    
+
 
 
   return (

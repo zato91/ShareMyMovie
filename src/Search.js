@@ -5,9 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {addfilm} from './actions';
 import { useDispatch } from "react-redux"
-
-
-
+require('dotenv').config()
 
 const useStyles = makeStyles((theme) => ({
 
@@ -37,7 +35,7 @@ export default  function Search() {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
-          "x-rapidapi-key": "3d80bfb1fcmsha6879bf3856fa03p19e354jsnec261fdd4c92"
+          "x-rapidapi-key": process.env.REACT_APP_API_KEY
         }
       })
       .then(res => res.json())
