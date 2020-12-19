@@ -7,9 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-// import Dialog from './Dialog';
 import Rating from '@material-ui/lab/Rating';
-import {deletemovie} from './actions';
+import {deletemovie} from '../../actions';
 import {useDispatch} from 'react-redux'
 import Dialog2 from "./Dialog2"
 

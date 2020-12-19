@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import MediaCard2 from './MediaCard2'
 import Grid from '@material-ui/core/Grid';
 import {useSelector, useDispatch} from 'react-redux'
-import {filter, deletelist} from './actions' 
+import {filter, deletelist} from '../../actions' 
  
 
 const useStyles = makeStyles((theme) => ({

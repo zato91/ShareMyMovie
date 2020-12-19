@@ -11,7 +11,7 @@ import Log from './Log';
 import Welcome from '../src/pages/Welcome'
 import Goodbye from '../src/pages/Goodbye'
 import Movie from '../src/pages/Movie';
-import MovieList from './MovieList';
+import MovieList from '../src/pages/MovieList';
 import ShareList from './ShareList';
 import Friends from './Friends';
 import Chat from './Chat';
