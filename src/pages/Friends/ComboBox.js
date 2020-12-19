@@ -2,20 +2,13 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useDispatch, useSelector } from "react-redux"
-
 import Button from '@material-ui/core/Button';
-import {friend} from './actions'
+import {friend} from '../../actions'
 
 export default function ComboBox(props) {
     const dispatch = useDispatch()
     const users = useSelector(state => state.Users)
-   
-    
-
     const top100Films = users
-
-      
- 
 
     function hello(e){
        

@@ -2,8 +2,7 @@ import React from 'react';
 import ComboBox from './ComboBox';
 import { useDispatch, useSelector } from "react-redux"
 import Button from '@material-ui/core/Button';
-import {deletefriend} from './actions';
-
+import {deletefriend} from '../../actions';
 
 
 

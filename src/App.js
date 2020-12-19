@@ -13,7 +13,7 @@ import Goodbye from '../src/pages/Goodbye'
 import Movie from '../src/pages/Movie';
 import MovieList from '../src/pages/MovieList';
 import ShareList from '../src/pages/ShareList';
-import Friends from './Friends';
+import Friends from '../src/pages/Friends';
 import Chat from './Chat';
 import { useDispatch } from "react-redux"
 
