@@ -10,7 +10,7 @@ import { Burger, Menu } from './components';
 import Log from './Log';
 import Welcome from '../src/pages/Welcome'
 import Goodbye from '../src/pages/Goodbye'
-import Movie from './Movie';
+import Movie from '../src/pages/Movie';
 import MovieList from './MovieList';
 import ShareList from './ShareList';
 import Friends from './Friends';

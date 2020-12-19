@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import {addfilm} from './actions';
+import {addfilm} from '../../actions';
 import { useDispatch } from "react-redux"
 require('dotenv').config()
 
@@ -85,29 +85,3 @@ export default  function Search() {
       );
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-  
-
-  
