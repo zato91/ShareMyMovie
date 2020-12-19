@@ -1,12 +1,7 @@
-
 import MediaCard3 from "./MediaCard3"
 import React, {useState} from 'react';
 
-
-
-
 const MAD_Dog = () => {
-
    
        
     const [media3, setMedia3] = useState([

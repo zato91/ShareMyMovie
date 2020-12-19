@@ -1,4 +1,3 @@
-
 import MediaCard3 from "./MediaCard3"
 import React, {useState} from 'react';
 

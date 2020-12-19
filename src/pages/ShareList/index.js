@@ -9,7 +9,6 @@ const ShareList = () => {
   const history = useHistory();
 
 
-
   function go(){
     history.push('/sharelist/PotatoChips' ); 
   }
@@ -38,7 +37,5 @@ const ShareList = () => {
     
     )
 };
-
-
 
 export default ShareList;
