@@ -7,7 +7,7 @@ import { useOnClickOutside } from './hook.js';
 import {Route} from "react-router-dom";
 import { theme } from './theme';
 import { Burger, Menu } from './components';
-import Log from './Log';
+import Log from '../src/pages/Log';
 import Welcome from '../src/pages/Welcome'
 import Goodbye from '../src/pages/Goodbye'
 import Movie from '../src/pages/Movie';
