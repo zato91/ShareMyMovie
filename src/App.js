@@ -8,8 +8,8 @@ import {Route} from "react-router-dom";
 import { theme } from './theme';
 import { Burger, Menu } from './components';
 import Log from './Log';
-import Welcome from './Welcome';
-import Goodbye from './Goodbye';
+import Welcome from '../src/pages/Welcome'
+import Goodbye from '../src/pages/Goodbye'
 import Movie from './Movie';
 import MovieList from './MovieList';
 import ShareList from './ShareList';
