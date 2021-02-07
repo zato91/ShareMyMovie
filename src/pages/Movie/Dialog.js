@@ -13,7 +13,7 @@ import Box from '@material-ui/core/Box';
 
 export default function FormDialog(props) {
   const [open, setOpen] = React.useState(false);
-  const [list, setList] = React.useState("");
+  let [list, setList] = React.useState("");
   const lists=  useSelector(state => state.listMovie)
   const [currency, setCurrency] = React.useState("");
   
@@ -38,7 +38,10 @@ export default function FormDialog(props) {
   };
 
   const handleMovie = () => {
-    console.log(props.movie)
+   
+    
+    
+    if(!list) list = currency
     console.log(list)
     fetch("http://localhost:3000/movies", {
       method: "POST",
@@ -53,21 +56,20 @@ export default function FormDialog(props) {
           extra_info: props.movie.displayOn,
           extra_url: props.movie.display_url,
           list_movie : list,
-          existing_list: currency,
           id: localStorage.id
 
       })
       })
       .then(res => res.json())
       .then(data => { 
-        // if(!data.error){
+        if(!data.error){
         
           
-        //   let wrong = document.createElement("h1");
-        //   wrong.innerText = data.error
-        //   wrong.style.color = "red"
-        //   document.querySelector('.makeStyles-paper-1').append(wrong)
-        // }
+          let wrong = document.createElement("h1");
+          wrong.innerText = data.error
+          wrong.style.color = "red"
+          document.querySelector('.makeStyles-paper-1').append(wrong)
+        }
        
       })
   };
@@ -79,11 +81,11 @@ export default function FormDialog(props) {
       </Button>
       
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        {/* <DialogTitle id="form-dialog-title">Subscribe</DialogTitle> */}
+      
         <DialogContent>
-          {/* <DialogContentText> */}
+        
             <h3>Create a List</h3>
-          {/* </DialogContentText> */}
+         
           <TextField onChange={event => setList(event.target.value)}
             variant="outlined"
             margin="normal"
@@ -95,15 +97,13 @@ export default function FormDialog(props) {
            
             autoComplete="current-list" >
     </TextField> 
-    {/* <DialogContentText>
-            Or 
-          </DialogContentText> */}
-          <h3>or List</h3>
+   
+          <h3>or Existing List</h3>
     <TextField
-        //   id="outlined-select-currency-native"
+  
           select
           label="List"
-          value={currency}
+          value="select"
           onChange={event => setCurrency(event.target.value)}
           SelectProps={{
             native: true,

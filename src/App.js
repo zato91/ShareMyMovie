@@ -1,7 +1,7 @@
 import {listmovie, films, allFriend} from './actions';
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
-import Navbar from './Navbar';
+import Navbar from '../src/pages/Navbar';
 import { ThemeProvider } from 'styled-components';
 import { useOnClickOutside } from './hook.js';
 import {Route} from "react-router-dom";
