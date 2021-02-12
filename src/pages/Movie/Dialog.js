@@ -61,17 +61,7 @@ export default function FormDialog(props) {
       })
       })
       .then(res => res.json())
-      .then(data => { 
-        if(!data.error){
-        
-          
-          let wrong = document.createElement("h1");
-          wrong.innerText = data.error
-          wrong.style.color = "red"
-          document.querySelector('.makeStyles-paper-1').append(wrong)
-        }
-       
-      })
+      .then(data => data)
   };
 
   return (
